@@ -13,4 +13,21 @@ const duplicateFinder = () => {
     return duplicates;
 }
 
-duplicateFinder()
+// duplicateFinder()
+
+// Count the occurrences of each name in the array
+const repetitiveArray = [
+    "Radhesh",
+    "Radhesh",
+    "Jai",
+    "Vaibhav",
+    "Divyansh",
+    "Divyansh"
+];
+
+const countOccurrences = repetitiveArray.reduce((acc, name) => {
+    acc[name] = (acc[name] || 0) + 1;
+    return acc;
+}, {});
+
+console.log(countOccurrences)

@@ -43,7 +43,7 @@ const flattenArray = (arr) => {
 let x = {}, y = { name: "Ronny" }, z = { name: "John" };
 x[y] = { name: "Vivek" };
 x[z] = { name: "Akki" };
-// console.log(x);
+console.log(x);
 
 
 //Flatten an array for all test cases without using inbuild functions
@@ -68,4 +68,4 @@ const flattenArrays = (arr) => {
 const nestedArray = [1, 2, [3, 4, [5, 6]], 7, [8, [9]]];
 const flattenedArray = flattenArray(nestedArray);
 
-console.log(flattenedArray);
+// console.log(flattenedArray);

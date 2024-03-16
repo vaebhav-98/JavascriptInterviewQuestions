@@ -2,19 +2,18 @@
 // return false if every element is distinct.
 
 // Example 1:
-
 // Input: nums = [1,2,3,1]
 // Output: true
-// Example 2:
 
+// Example 2:
 // Input: nums = [1,2,3,4]
 // Output: false
-// Example 3:
 
-// Input: nums = [1,1,1,3,3,4,3,2,4,2]
-// Output: true
+// This implementation is correct and efficient for small arrays for larger arrays, 
+// the time complexity can become an issue because the includes method has to iterate through the array arr each time 
+// to check for duplicates, resulting in a time complexity of O(n^2)
 
-var containsDuplicate = (nums) => {
+let containsDuplicate = (nums) => {
     let arr = [];
     for (let i = 0; i < nums.length; i++) {
         if (arr.includes(nums[i])) {
@@ -24,5 +23,27 @@ var containsDuplicate = (nums) => {
     }
     return false;
 }
-
 console.log(containsDuplicate([1,2,3,1]))
+
+// This implementation has a time complexity of O(n) because Set operations like has and add are typically constant time operations.
+let containsDuplicate2 = (nums)=> {
+    let set = new Set();
+    for (let num of nums) {
+        if (set.has(num)) {
+            return true;
+        }
+        set.add(num);
+    }
+    return false;
+}
+
+//This approach has a time complexity of O(n log n) due to the sorting operation.
+let containsDuplicate3 = (nums)=> {
+    nums.sort((a, b) => a - b);
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] === nums[i - 1]) {
+            return true;
+        }
+    }
+    return false;
+}

@@ -47,8 +47,8 @@ console.log(productExceptSelf([1,2,3,4]))
 //  Solution 2
 
 const productExceptSelf2 = (nums) => {
-    const n = nums.length
-    const result = Array(n).fill(1)
+    const n = nums.length;
+    const result = Array(n).fill(1);
     let prefixProduct = 1
 
     for (let i = 0; i < n; i++) {

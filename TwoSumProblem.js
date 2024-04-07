@@ -2,10 +2,10 @@
 // For example, arr = [3, 5, 2, -4, 8, 11] and the sum is 7, 
 // Output : [[11, -4], [2, 5]] because 11 + -4 = 7 and 2 + 5 = 7.
 
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// let arr = [2,4,11,6];
 
 //using hashing
-let target = 10;
+// let target = 15;
 
 const twoSum = (ar, target) => {
     let hash = {};
@@ -36,20 +36,80 @@ const twosumType2 = () => {
 }
 // console.log(twosumType2());
 
-const twoPointerApproach = () => {
+/* const twoPointerApproach = () => {
     let left = arr[0];
     let right = arr[arr.length - 1];
     while (left < right) {
         if (left + right === target) {
             return [left, right]
         }
-        else if (left < target) {
+        else if (left + right < target) {
             left++;
         }
         else {
             right--;
         }
     }
+} */
+/* const twoPointerApproach = (arr, target) => {
+    let left = 0;
+    let right = arr.length - 1;
+    
+    while (left < right) {
+        let sum = arr[left] + arr[right];
+        
+        if (sum === target) {
+            return [arr[left], arr[right]];
+        } else if (sum < target) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+    
+    return []; // Return empty array if no such pair is found
+} */
+
+/* const twoPointerApproach = (arr, target) => {
+    let left = 0;
+    let right = arr.length - 1;
+    
+    while (left < right) {
+        let sum = arr[left] + arr[right];
+        
+        if (sum === target) {
+            return [arr[left], arr[right]];
+        } else if (sum < target) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+    return [];
+} */
+
+//if array is not sorted then sort first. Time complexity - O(n log n) for sorting + O(n) for two-pointer approach = O(n log n)
+const twoPointerApproach = (arr, target) => {
+    arr.sort((a, b) => a - b); // Sort the array first
+    let left = 0;
+    let right = arr.length - 1;
+    
+    while (left < right) {
+        let sum = arr[left] + arr[right];
+        
+        if (sum === target) {
+            return [arr[left], arr[right]];
+        } else if (sum < target) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+    
+    return []; // Return empty array if no such pair is found
 }
 
-console.log(twoPointerApproach());
+const arr =[3, 5, 2, -4, 8, 11];
+const target = 7;
+
+console.log(twoPointerApproach(arr,  target));

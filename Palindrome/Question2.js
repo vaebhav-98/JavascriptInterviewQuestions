@@ -25,10 +25,10 @@ Constraints:
 1 <= s.length <= 2 * 105
 s consists only of printable ASCII characters. */
 /**
- * @param {string} s
+ * @param {string}
  * @return {boolean}
  */
-var isPalindrome = function (s) {
+var isPalindrome = (s) => {
     let i = 0;
     let j = s.length - 1;
     while (i < j) {

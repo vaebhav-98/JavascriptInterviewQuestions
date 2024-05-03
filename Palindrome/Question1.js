@@ -44,3 +44,22 @@ let isPalindrome = (x) => {
 // console.log(isPalindrome(121)); // Output: true
 console.log(isPalindrome(-121)); // Output: false
 // console.log(isPalindrome(10)); // Output: false
+
+
+var isPalindrome2 = function (x) {
+    if (x < 0 || (x % 10 === 0 && x !== 0)) {
+       return false;
+   }
+
+   let reversed = 0;
+   let original = x;
+
+   // Reverse the integer
+   while (x > 0) {
+       reversed = reversed * 10 + x % 10;
+       x = Math.floor(x / 10);
+   }
+
+   // Compare the reversed integer with the original
+   return original === reversed;
+};
